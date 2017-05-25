@@ -5,4 +5,6 @@ class User < ApplicationRecord
 
   has_secure_password
 
+  has_many :drinks_users
+  has_many :drinks, through: :drinks_users
 end
