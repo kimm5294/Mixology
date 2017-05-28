@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
 resources :users, except: [:index]
 
-resources :drinks
+resources :drinks, only: [:create, :show]
 
 resources :drinks_users, only: [:create, :destroy]
 
