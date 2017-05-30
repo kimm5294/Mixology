@@ -8,4 +8,8 @@ class User < ApplicationRecord
 
   has_many :drinks_users
   has_many :drinks, through: :drinks_users
+
+  def full_name
+    "#{self.first_name} #{self.last_name}"
+  end
 end
