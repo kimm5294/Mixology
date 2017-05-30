@@ -17,8 +17,12 @@ class UsersController < ApplicationController
   end
 
   def show
-    require_login
-    @user = User.find_by(id: current_user.id)
+    if logged_in?
+      @user = User.find_by(id: current_user.id)
+      render "show"
+    else
+      redirect_to '/'
+    end
   end
 
   private
