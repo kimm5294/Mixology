@@ -1,14 +1,9 @@
 module ApplicationHelper
   def logged_in?
-    return true if session[:current_user_id]
-    false
-  end
-
-  def require_login
-    if !logged_in?
-      flash[:error] = "This page requires a login"
-      redirect_to '/sessions/new'
+    if session[:current_user_id]
+      return true
     end
+    false
   end
 
   def current_user
