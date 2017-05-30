@@ -9,6 +9,15 @@
   </head>
 
   <body>
+
+    <header>
+      <nav>
+        <% if logged_in? %>
+          <%= link_to "Logout", session_path, method: :delete %>
+        <% end %>
+      </nav>
+    </header>
+
     <%= yield %>
   </body>
 </html>
