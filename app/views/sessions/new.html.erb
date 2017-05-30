@@ -1,0 +1,9 @@
+<h3>Login Page</h3>
+
+<%= render partial: "errors" %>
+
+<%= form_tag({controller: :sessions, action: "create", method:"post"}) do %>
+  <%= text_field_tag(:email, nil, placeholder: "Email") %>
+  <%= password_field_tag(:password, nil, placeholder: "Password") %>
+  <%= submit_tag("Login") %>
+<% end %>

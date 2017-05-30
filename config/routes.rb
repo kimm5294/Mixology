@@ -11,6 +11,6 @@ end
 
 resources :drinks_users, only: [:create, :destroy]
 
-resources :sessions, only: [:destroy, :new]
+resources :sessions, only: [:destroy, :new, :create]
 
 end
