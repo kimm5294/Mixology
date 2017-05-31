@@ -5,7 +5,7 @@ resources :users, except: [:index]
 resources :drinks, only: [:create, :show, :index] do
   collection do
     get 'search'
-    post 'search_post'
+    get 'display'
   end
 end
 
