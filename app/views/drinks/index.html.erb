@@ -1,7 +1,15 @@
 <h1>Welcome to Mixology</h1>
 
+<h3>Popular Drinks</h3>
 <ul>
   <% @popular_drinks.each do |drink| %>
     <li><%=drink.name %></li>
   <% end %>
 </ul>
+
+<h3>Search Drinks</h3>
+
+<%= form_tag({controller: "drinks", action: "search"}, method: "get") do %>
+  <%= text_field_tag(:search, nil, placeholder:"Search") %>
+  <%= submit_tag "Search" %>
+<% end %>
