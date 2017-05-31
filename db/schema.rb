@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20170525222739) do
 
   create_table "drinks", force: :cascade do |t|
     t.string "name", null: false
-    t.string "api_id", null: false
+    t.string "api_code", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
