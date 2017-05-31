@@ -12,9 +12,16 @@
   </p>
 </div>
 
+<% if @drink[:video] %>
 <div>
   <video width="30%" controls autoplay>
     <source src="<%=@drink[:video]%>" type="video/mp4">
     Video not available
   </video>
 </div>
+<% end %>
+
+<% if logged_in? %>
+  <%= link_to "Save Drink", drinks_users_path(name: @drink[:name], code: @drink[:id]), method: "post" %>
+<% end %>
+
