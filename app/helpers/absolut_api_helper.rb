@@ -11,9 +11,22 @@ module AbsolutApiHelper
     response = Net::HTTP.get_response(uri)
     body = JSON.parse(response.body)
     drink = body["result"].first
+    puts drink
     return {
       name: drink["name"],
-
+      desc: drink["descriptionPlain"],
+      story: drink["story"],
+      rating: drink["rating"],
+      skill: drink["skill"],
+      video: "http://assets.absolutdrinks.com/videos/" + drink["videos"].last["video"],
+      alcoholic: drink["isAlcoholic"],
+      hot: drink["isHot"],
+      glass: drink["servedIn"],
+      ingredients: drink["ingredients"],
+      tastes: drink["tastes"],
+      tools: drink["tools"],
+      types: drink["drinkTypes"],
+      id: drink["id"]
     }
   end
 end
