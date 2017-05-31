@@ -1,3 +1,5 @@
+require 'net/http'
+
 module AbsolutApiHelper
   def search_name(query)
     uri = URI.parse("http://addb.absolutdrinks.com/quickSearch/drinks/#{query.gsub(" ", "%20")}/?apiKey=#{ENV['ABSOLUT_KEY']}")
@@ -12,13 +14,12 @@ module AbsolutApiHelper
     body = JSON.parse(response.body)
     drink = body["result"].first
     puts drink
-    return {
+    hash = {
       name: drink["name"],
       desc: drink["descriptionPlain"],
       story: drink["story"],
       rating: drink["rating"],
       skill: drink["skill"],
-      video: "http://assets.absolutdrinks.com/videos/" + drink["videos"].last["video"],
       alcoholic: drink["isAlcoholic"],
       hot: drink["isHot"],
       glass: drink["servedIn"],
@@ -28,5 +29,9 @@ module AbsolutApiHelper
       types: drink["drinkTypes"],
       id: drink["id"]
     }
+    if drink["videos"].last
+      hash[:video] = "http://assets.absolutdrinks.com/videos/" + drink["videos"].last["video"]
+    end
+    return hash
   end
 end
