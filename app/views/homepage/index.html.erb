@@ -5,7 +5,7 @@
 <ul>
   <% @popular_drinks.each do |drink| %>
     <li>
-      <%=link_to "#{drink["name"]}", {controller: "drinks", action: "display", api: "#{drink["id"]}"} %>
+      <%=link_to "#{drink[:name]}", {controller: "drinks", action: "display", api: "#{drink[:api_code]}"} %>
     </li>
   <% end %>
 </ul>
