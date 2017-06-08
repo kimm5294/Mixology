@@ -93,3 +93,6 @@ html {
     height: 100%;
 }
 
+#navbarSupportedContent {
+  float: right;
+}
