@@ -1,11 +1,12 @@
 
 
-<h1>Welcome to Mixology Homepage</h1>
 
 <h3>Popular Drinks</h3>
 <ul>
   <% @popular_drinks.each do |drink| %>
-    <li><%=drink.name %></li>
+    <li>
+      <%=link_to "#{drink["name"]}", {controller: "drinks", action: "display", api: "#{drink["id"]}"} %>
+    </li>
   <% end %>
 </ul>
 
