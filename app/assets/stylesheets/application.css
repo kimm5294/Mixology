@@ -93,6 +93,10 @@ html {
     height: 100%;
 }
 
+.wrap {
+    min-height:70%;
+}
+
 footer {
   color: #c9c9c9;
   right: 0;
