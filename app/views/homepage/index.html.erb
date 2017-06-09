@@ -1,28 +1,22 @@
-<div class="carousel slide carousel-fade" data-ride="carousel">
+<div class="container">
+<div class="row">
+  <div class="col-md-4 pop">
+    <h3>Popular Drinks</h3>
+    <ul>
+      <% @popular_drinks.each do |drink| %>
+        <li>
+          <%=link_to "#{drink[:name]}", {controller: "drinks", action: "display", api: "#{drink[:api_code]}"} %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
 
-  <!-- Wrapper for slides -->
-    <div class="carousel-inner" role="listbox">
-      <div class="item active">
-      </div>
-      <div class="item">
-      </div>
-      <div class="item">
-      </div>
-    </div>
+  <div class="col-md-4 search">
+    <h3>Search Drinks</h3>
+    <%= form_tag({controller: "drinks", action: "search"}, method: "get") do %>
+      <%= text_field_tag(:search, nil, placeholder:"Search") %>
+      <%= submit_tag "Search" %>
+    <% end %>
+  </div>
 </div>
-
-<h1>Welcome to Mixology Homepage</h1>
-
-<h3>Popular Drinks</h3>
-<ul>
-  <% @popular_drinks.each do |drink| %>
-    <li><%=drink.name %></li>
-  <% end %>
-</ul>
-
-<h3>Search Drinks</h3>
-
-<%= form_tag({controller: "drinks", action: "search"}, method: "get") do %>
-  <%= text_field_tag(:search, nil, placeholder:"Search") %>
-  <%= submit_tag "Search" %>
-<% end %>
+</div>
