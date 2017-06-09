@@ -1,21 +1,39 @@
-<div class="wrapper container">
+<div class="wrapper container-fluid">
   <h3><%=@drink[:name]%></h3>
 
-  <div class="story">
-    <p>
-      <%=@drink[:story] %>
-    </p>
-  </div>
+  <div>
+    <div class="story">
+      <p>
+        <%=@drink[:story] %>
+      </p>
+    </div>
 
-  <div class="desc">
-    <p>
-      <%=@drink[:desc] %>
-    </p>
+    <div class="row">
+      <div class="desc col-xs-6">
+        <h3>Directions</h3>
+        <ul>
+          <% @drink[:desc].each do |line| %>
+            <li><%=line%></li>
+          <% end %>
+        </ul>
+      </div>
+
+      <div class="ingredients-list col-xs-6">
+        <div class="ingredients">
+          <h3>Ingredients</h3>
+          <ul>
+            <% @drink[:ingredients].each do |ingredient| %>
+              <li><%=ingredient %></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
   </div>
 
   <% if @drink[:video] %>
   <div class="video-container">
-    <video width="50%" controls autoplay>
+    <video width="80%" controls autoplay>
       <source src="<%=@drink[:video]%>" type="video/mp4">
       Video not available
     </video>
