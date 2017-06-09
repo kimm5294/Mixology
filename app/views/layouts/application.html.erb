@@ -34,18 +34,23 @@
         </div>
     </div>
     <header>
-      <nav>
-        <%= link_to "Home", root_path %>
-        |
-        <% if !logged_in? %>
-          <%= link_to "Login", new_session_path %>
-          |
-          <%= link_to "Register", new_user_path %>
-        <% else %>
-          <%= link_to "Profile", user_path(current_user) %>
-          |
-          <%= link_to "Logout", session_path(current_user), method: :delete %>
-        <% end %>
+      <nav class="container-fluid" id="yoyoyo">
+        <div class="navbar">
+          <h1>Mixology</h1>
+          <div class="nav-link-container">
+            <%= link_to "Home", root_path %>
+            |
+            <% if !logged_in? %>
+              <%= link_to "Login", new_session_path %>
+              |
+              <%= link_to "Register", new_user_path %>
+            <% else %>
+              <%= link_to "Profile", user_path(current_user) %>
+              |
+              <%= link_to "Logout", session_path(current_user), method: :delete %>
+            <% end %>
+          </div>
+        </div>
       </nav>
     </header>
 
