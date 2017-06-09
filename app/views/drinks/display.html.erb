@@ -14,8 +14,8 @@
   </div>
 
   <% if @drink[:video] %>
-  <div>
-    <video width="30%" controls autoplay>
+  <div class="video-container">
+    <video width="50%" controls autoplay>
       <source src="<%=@drink[:video]%>" type="video/mp4">
       Video not available
     </video>
