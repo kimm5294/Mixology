@@ -3,6 +3,8 @@
 <h3>Drinks</h3>
 <ul>
   <% @user.drinks.each do |drink| %>
-    <li><%=drink.name %></li>
+    <li>
+      <%=link_to "#{drink[:name]}", {controller: "drinks", action: "display", api: "#{drink[:api_code]}"} %>
+    </li>
   <% end %>
 </ul>
