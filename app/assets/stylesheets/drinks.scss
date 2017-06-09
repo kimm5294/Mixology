@@ -8,5 +8,31 @@ p {
 
 .wrapper {
   min-height: 100%;
+  min-width: 100%;
   background-color: rgba(0,0,0,0.6);
+  text-align: center;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+.video-container {
+  float: right;
+  text-align: center;
+}
+
+.ingredients-list {
+  color: #dddddd;
+  float: right;
+}
+
+.ingredients {
+  float: right;
+}
+
+.desc {
+  color: #dddddd;
+}
+
+.row {
+  text-align: left;
 }
