@@ -16,14 +16,14 @@ module AbsolutApiHelper
     puts drink
     hash = {
       name: drink["name"],
-      desc: drink["descriptionPlain"],
+      desc: drink["descriptionPlain"].split(". "),
       story: drink["story"],
       rating: drink["rating"],
       skill: drink["skill"],
       alcoholic: drink["isAlcoholic"],
       hot: drink["isHot"],
       glass: drink["servedIn"],
-      ingredients: drink["ingredients"],
+      ingredients: ingredients(drink),
       tastes: drink["tastes"],
       tools: drink["tools"],
       types: drink["drinkTypes"],
@@ -33,5 +33,11 @@ module AbsolutApiHelper
       hash[:video] = "http://assets.absolutdrinks.com/videos/" + drink["videos"].last["video"]
     end
     return hash
+  end
+
+  def ingredients(response)
+    response["ingredients"].map do |ingredient|
+      ingredient["textPlain"]
+    end
   end
 end
